@@ -1,0 +1,71 @@
+@import '@fontsource-variable/inter';
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------
+   HASMOP — Tasarım Sistemi
+   Derin kurumsal mavi · beyaz · nötr gri · sınırlı kırmızı vurgu
+---------------------------------------------------------------- */
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Kurumsal mavi (ana renk) */
+  --color-navy-50: #f0f4f9;
+  --color-navy-100: #d9e2ef;
+  --color-navy-200: #b3c5df;
+  --color-navy-300: #7f9cc4;
+  --color-navy-400: #4a6da3;
+  --color-navy-500: #2b4d82;
+  --color-navy-600: #1f3a66;
+  --color-navy-700: #182d50;
+  --color-navy-800: #122340;
+  --color-navy-900: #0d1a30;
+  --color-navy-950: #070f1c;
+
+  /* Nötr gri tonları */
+  --color-ink-50: #f7f8fa;
+  --color-ink-100: #eef0f3;
+  --color-ink-200: #dfe3e8;
+  --color-ink-300: #c5ccd6;
+  --color-ink-400: #97a1b0;
+  --color-ink-500: #6b7585;
+  --color-ink-600: #4d5663;
+  --color-ink-700: #3a414b;
+  --color-ink-800: #262b32;
+  --color-ink-900: #15181d;
+
+  /* Sınırlı kırmızı aksiyon rengi (yalnızca kritik CTA) */
+  --color-signal-500: #c0392b;
+  --color-signal-600: #a52f23;
+  --color-signal-700: #8a271d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--color-ink-700);
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Bölüm görünürlük animasyonu — hissedilir ama fark edilmez */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
