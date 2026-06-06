@@ -27,7 +27,9 @@ jobs:
           node-version: 20
           cache: npm
 
-      - run: npm ci
+      # npm install (npm ci yerine): platforma özel opsiyonel bağımlılıklar
+      # (örn. Linux runner'da gerekenler) lock dosyasında olmasa da çözülür.
+      - run: npm install
       - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
